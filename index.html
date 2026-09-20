@@ -1,641 +1,477 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!-- data-theme="light" pins the paper theme for every reader. Remove the
+     attribute to let the site follow the reader's system setting again; the
+     dark tokens are still in css/tokens.css, ready for that. -->
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kazi Samin Yasar Alam — Business &amp; Data Analyst</title>
-<meta name="description" content="Business Analyst and Data Analyst. Requirements elicitation, technical documentation, SQL, and reporting. Computer Science graduate, Islamic University of Technology.">
+<title>Kazi Samin Yasar Alam — PhD applicant, data systems and NLP</title>
+<meta name="description" content="Kazi Samin Yasar Alam, PhD applicant for Fall 2027. Reliable, scalable data systems, and data-centric NLP for low-resource and code-mixed languages.">
+<meta name="author" content="Kazi Samin Yasar Alam">
+<link rel="canonical" href="https://syk08.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Kazi Samin Yasar Alam — PhD applicant, data systems and NLP">
+<meta property="og:description" content="PhD applicant for Fall 2027. Reliable, scalable data systems, and data-centric NLP for low-resource and code-mixed languages.">
+<meta property="og:url" content="https://syk08.github.io/">
+<meta property="og:image" content="https://syk08.github.io/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kazi Samin Yasar Alam — PhD applicant, data systems and NLP">
+<meta name="twitter:description" content="PhD applicant for Fall 2027. Reliable, scalable data systems, and data-centric NLP for low-resource and code-mixed languages.">
+<meta name="twitter:image" content="https://syk08.github.io/assets/og.jpg">
 
-<style>
-  :root{
-    --paper:#E9EDF0;
-    --panel:#FFFFFF;
-    --ink:#0F1419;
-    --slate:#5A6672;
-    --line:#C9D2DA;
-    --teal:#0B4F4A;
-    --teal-soft:#D6E5E2;
-    --amber:#B4571A;
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/bundle.css">
+<link rel="stylesheet" href="css/site.css">
 
-    --display:'Space Grotesk',system-ui,sans-serif;
-    --body:'IBM Plex Sans',system-ui,sans-serif;
-    --mono:'IBM Plex Mono',ui-monospace,monospace;
-
-    --wrap:1080px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--body);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;}
-  a:focus-visible,button:focus-visible{
-    outline:2px solid var(--teal);
-    outline-offset:3px;
-  }
-
-  .wrap{
-    max-width:var(--wrap);
-    margin:0 auto;
-    padding:0 28px;
-  }
-
-  /* ---------- eyebrow / section labels ---------- */
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--slate);
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:0 0 26px;
-  }
-  .eyebrow::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--line);
-  }
-
-  /* ---------- top bar ---------- */
-  .topbar{
-    position:sticky;top:0;z-index:50;
-    background:rgba(233,237,240,.88);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .topbar .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    height:58px;
-  }
-  .mark{
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--teal);
-    font-weight:500;
-    text-decoration:none;
-  }
-  .navlinks{display:flex;gap:22px;}
-  .navlinks a{
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--slate);
-    text-decoration:none;
-    padding:4px 0;
-    border-bottom:1px solid transparent;
-    transition:color .18s ease,border-color .18s ease;
-  }
-  .navlinks a:hover{color:var(--ink);border-bottom-color:var(--teal);}
-  @media(max-width:720px){.navlinks{display:none;}}
-
-  /* ---------- hero ---------- */
-  .hero{padding:78px 0 56px;}
-  .hero h1{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(38px,6.4vw,68px);
-    line-height:1.02;
-    letter-spacing:-.028em;
-    margin:0 0 20px;
-  }
-  .hero .lede{
-    font-size:clamp(17px,2vw,20px);
-    color:var(--slate);
-    max-width:60ch;
-    margin:0 0 34px;
-  }
-  .hero .lede strong{color:var(--ink);font-weight:600;}
-
-  .actions{display:flex;flex-wrap:wrap;gap:12px;}
-  .btn{
-    font-family:var(--mono);
-    font-size:12.5px;
-    letter-spacing:.07em;
-    text-transform:uppercase;
-    text-decoration:none;
-    padding:11px 18px;
-    border:1px solid var(--teal);
-    color:var(--teal);
-    background:transparent;
-    transition:background .18s ease,color .18s ease;
-  }
-  .btn:hover{background:var(--teal);color:#fff;}
-  .btn.solid{background:var(--teal);color:#fff;}
-  .btn.solid:hover{background:#093C38;}
-
-  /* ---------- signature: workflow strip ---------- */
-  .flow{
-    margin:56px 0 0;
-    padding:26px 0 0;
-    border-top:1px solid var(--line);
-  }
-  .flow-track{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:0;
-  }
-  .node{
-    position:relative;
-    padding:18px 20px 18px 0;
-    opacity:0;
-    transform:translateY(10px);
-    animation:rise .6s cubic-bezier(.2,.7,.3,1) forwards;
-  }
-  .node:nth-child(1){animation-delay:.10s;}
-  .node:nth-child(2){animation-delay:.24s;}
-  .node:nth-child(3){animation-delay:.38s;}
-  .node:nth-child(4){animation-delay:.52s;}
-  @keyframes rise{to{opacity:1;transform:translateY(0);}}
-
-  .node::before{
-    content:"";
-    position:absolute;top:0;left:0;
-    width:100%;height:2px;
-    background:var(--line);
-  }
-  .node::after{
-    content:"";
-    position:absolute;top:-3px;left:0;
-    width:8px;height:8px;
-    background:var(--teal);
-    border-radius:50%;
-  }
-  .node .n{
-    font-family:var(--mono);
-    font-size:11px;
-    color:var(--teal);
-    letter-spacing:.1em;
-    display:block;
-    margin-bottom:6px;
-  }
-  .node .t{
-    font-family:var(--display);
-    font-weight:600;
-    font-size:15px;
-    letter-spacing:-.01em;
-    display:block;
-    margin-bottom:3px;
-  }
-  .node .d{
-    font-size:13px;
-    color:var(--slate);
-    line-height:1.45;
-  }
-  @media(max-width:820px){
-    .flow-track{grid-template-columns:repeat(2,1fr);gap:0 18px;}
-    .node{padding-right:8px;}
-  }
-  @media(max-width:460px){
-    .flow-track{grid-template-columns:1fr;}
-  }
-
-  /* ---------- sections ---------- */
-  section{padding:66px 0;border-top:1px solid var(--line);}
-  section:first-of-type{border-top:none;}
-
-  .prose{max-width:68ch;font-size:17px;color:#26313B;}
-
-  /* ---------- entries (experience / leadership) ---------- */
-  .entry{
-    display:grid;
-    grid-template-columns:190px 1fr;
-    gap:28px;
-    padding:26px 0;
-    border-top:1px solid var(--line);
-  }
-  .entry:first-of-type{border-top:none;padding-top:0;}
-  .entry .meta{
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--slate);
-    letter-spacing:.04em;
-    padding-top:5px;
-  }
-  .entry h3{
-    font-family:var(--display);
-    font-size:20px;
-    font-weight:600;
-    letter-spacing:-.015em;
-    margin:0 0 4px;
-  }
-  .entry .org{
-    font-family:var(--mono);
-    font-size:12.5px;
-    color:var(--teal);
-    letter-spacing:.05em;
-    margin:0 0 14px;
-  }
-  .entry ul{margin:0;padding-left:18px;}
-  .entry li{margin-bottom:8px;color:#26313B;}
-  .entry li::marker{color:var(--line);}
-  @media(max-width:760px){
-    .entry{grid-template-columns:1fr;gap:10px;}
-    .entry .meta{padding-top:0;}
-  }
-
-  /* ---------- projects ---------- */
-  .projects{display:grid;gap:20px;}
-  .card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    padding:30px;
-  }
-  .card h3{
-    font-family:var(--display);
-    font-size:21px;
-    font-weight:600;
-    letter-spacing:-.015em;
-    margin:0 0 8px;
-  }
-  .tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px;}
-  .tag{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--teal);
-    background:var(--teal-soft);
-    padding:4px 9px;
-  }
-  .card ul{margin:0;padding-left:18px;}
-  .card li{margin-bottom:8px;color:#26313B;}
-  .card li::marker{color:var(--line);}
-
-  /* ---------- skills ---------- */
-  .skills{display:grid;gap:0;}
-  .skillrow{
-    display:grid;
-    grid-template-columns:230px 1fr;
-    gap:28px;
-    padding:20px 0;
-    border-top:1px solid var(--line);
-  }
-  .skillrow:first-child{border-top:none;}
-  .skillrow h3{
-    font-family:var(--display);
-    font-size:16px;
-    font-weight:600;
-    margin:0;
-    letter-spacing:-.01em;
-  }
-  .chips{display:flex;flex-wrap:wrap;gap:8px;}
-  .chip{
-    font-family:var(--mono);
-    font-size:12.5px;
-    padding:5px 11px;
-    border:1px solid var(--line);
-    background:var(--panel);
-    color:#26313B;
-  }
-  @media(max-width:700px){
-    .skillrow{grid-template-columns:1fr;gap:12px;}
-  }
-
-  /* ---------- education ---------- */
-  .edu{display:grid;gap:0;}
-  .edurow{
-    display:grid;
-    grid-template-columns:190px 1fr auto;
-    gap:24px;
-    align-items:baseline;
-    padding:20px 0;
-    border-top:1px solid var(--line);
-  }
-  .edurow:first-child{border-top:none;}
-  .edurow .deg{font-family:var(--display);font-weight:600;font-size:17px;}
-  .edurow .school{color:var(--slate);font-size:14.5px;margin-top:2px;}
-  .edurow .meta,.edurow .grade{
-    font-family:var(--mono);font-size:12.5px;color:var(--slate);letter-spacing:.04em;
-  }
-  .edurow .grade{color:var(--teal);}
-  @media(max-width:760px){
-    .edurow{grid-template-columns:1fr;gap:6px;}
-  }
-
-  /* ---------- contact ---------- */
-  .contact{
-    background:var(--ink);
-    color:#DDE4E9;
-    margin-top:0;
-    border-top:none;
-  }
-  .contact .eyebrow{color:#7F8D99;}
-  .contact .eyebrow::after{background:#2A343D;}
-  .contact h2{
-    font-family:var(--display);
-    font-size:clamp(28px,4.4vw,44px);
-    font-weight:600;
-    letter-spacing:-.025em;
-    margin:0 0 16px;
-    color:#fff;
-  }
-  .contact p{color:#9DAAB5;max-width:52ch;margin:0 0 30px;}
-  .contact .btn{border-color:#4A5862;color:#DDE4E9;}
-  .contact .btn:hover{background:#DDE4E9;color:var(--ink);border-color:#DDE4E9;}
-
-  footer{
-    border-top:1px solid #232C34;
-    margin-top:52px;padding-top:24px;
-    font-family:var(--mono);
-    font-size:11.5px;
-    color:#6C7A85;
-    letter-spacing:.05em;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-  }
-
-  @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;}
-    html{scroll-behavior:auto;}
-    .node{opacity:1;transform:none;}
-  }
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kazi Samin Yasar Alam",
+  "email": "mailto:saminyasar00@gmail.com",
+  "jobTitle": "Business Analyst",
+  "worksFor": { "@type": "Organization", "name": "Dynamic Solution Innovators Ltd." },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Islamic University of Technology" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "Bangladesh" },
+  "knowsAbout": ["Distributed data systems", "Data management", "Natural language processing", "Code-mixed languages", "Language model evaluation"],
+  "sameAs": [
+    "https://github.com/syk08",
+    "https://linkedin.com/in/kazi-samin-yasar-alam-a3a10b383",
+    "https://www.researchgate.net/publication/401229340_MixSarc_A_Bangla-English_Code-Mixed_Corpus_for_Implicit_Meaning_Identification"
+  ]
+}
+</script>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="wrap">
-    <a class="mark" href="#top">KSY Alam</a>
-    <nav class="navlinks">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact">Contact</a>
+<a class="pf-skip" href="#main">Skip to content</a>
+
+<header class="pf-header">
+  <div class="pf-container pf-header__inner">
+    <a class="pf-header__name" href="#top">Kazi Samin Yasar Alam</a>
+    <nav aria-label="Primary">
+      <ul class="pf-nav">
+        <li><a href="#research" data-nav="research">Research</a></li>
+        <li><a href="#publications" data-nav="publications">Publications</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#experience" data-nav="experience">Experience</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+        <li><a class="pf-btn pf-btn--secondary" style="min-height:36px;padding:0 16px" href="assets/CV.pdf">CV</a></li>
+      </ul>
     </nav>
   </div>
-</div>
+</header>
 
-<div class="wrap" id="top">
+<main id="main">
 
-  <!-- ================= HERO ================= -->
-  <header class="hero">
-    <h1>Kazi Samin<br>Yasar Alam</h1>
-    <p class="lede">
-      Business Analyst working where <strong>requirements meet data</strong> — turning
-      stakeholder conversations into specifications developers can build, and raw
-      operational data into reporting teams can decide from.
-    </p>
-    <div class="actions">
-      <a class="btn solid" href="mailto:saminyasar00@gmail.com">Get in touch</a>
-      <a class="btn" href="https://linkedin.com/in/kazi-samin-yasar-alam-a3a10b383" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/syk08" target="_blank" rel="noopener">GitHub</a>
-    </div>
-
-    <!-- signature: the analyst's workflow, start to finish -->
-    <div class="flow">
-      <div class="flow-track">
-        <div class="node">
-          <span class="n">01</span>
-          <span class="t">Elicit</span>
-          <span class="d">Client meetings, stakeholder interviews, scope definition</span>
-        </div>
-        <div class="node">
-          <span class="n">02</span>
-          <span class="t">Specify</span>
-          <span class="d">SRS &amp; SDD documents, UML diagrams, user stories</span>
-        </div>
-        <div class="node">
-          <span class="n">03</span>
-          <span class="t">Validate</span>
-          <span class="d">SQL checks, reconciliation, data quality across systems</span>
-        </div>
-        <div class="node">
-          <span class="n">04</span>
-          <span class="t">Report</span>
-          <span class="d">Dashboards and analysis that support the decision</span>
-        </div>
+<!-- Hero -->
+<section class="pf-container pf-hero" id="top">
+  <div class="pf-hero__grid">
+    <div>
+      <p class="pf-eyebrow pf-eyebrow--accent">PhD applicant · Fall 2027</p>
+      <h1 class="pf-hero__name">Kazi Samin Yasar Alam</h1>
+      <p class="pf-hero__affil">B.Sc. in Computer Science and Engineering, Islamic University of Technology</p>
+      <p class="pf-hero__lead">I'm interested in reliable, scalable data systems (how data is collected, synchronized, stored and served) and in data-centric NLP for low-resource and code-mixed languages. Contributing to offline-first data collection and national dashboard platforms, and building the data pipeline behind MixSarc, a Bangla–English corpus, led me to research in distributed data systems, data management, and the quality of the data language models are trained and evaluated on.</p>
+      <div class="pf-hero__actions">
+        <a class="pf-btn pf-btn--primary" href="assets/CV.pdf">Download CV</a>
+        <a class="pf-btn pf-btn--secondary" href="mailto:saminyasar00@gmail.com">Email me</a>
+        <a class="pf-link pf-link--arrow" style="align-self:center" href="#publications">Read my preprint</a>
       </div>
     </div>
-  </header>
+    <!-- Drop a 4:5 portrait at assets/portrait.jpg and it replaces the monogram automatically. -->
+    <div class="pf-portrait">
+      <img id="portrait" src="assets/portrait.jpg" alt="Portrait of Kazi Samin Yasar Alam" hidden>
+      <span class="pf-portrait__monogram" id="monogram" aria-hidden="true">KSYA</span>
+    </div>
+  </div>
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about">
-    <p class="eyebrow">About</p>
-    <p class="prose">
-      Computer Science graduate with hands-on experience in business analysis, SQL,
-      data analysis, and reporting. Skilled in requirements elicitation, technical
-      documentation, and cross-functional stakeholder coordination, with a passion for
-      transforming raw data into actionable insights that support data-driven business
-      decisions. A dedicated learner and collaborator — I believe growth comes from
-      engaging with communities and continuously stepping beyond my comfort zone, both
-      personally and professionally.
-    </p>
-  </section>
+  <dl class="pf-glance">
+    <div class="pf-glance__item">
+      <dt class="pf-glance__k">Education</dt>
+      <dd class="pf-glance__v" style="margin-left:0">IUT · CGPA 3.71 / 4.00</dd>
+    </div>
+    <div class="pf-glance__item">
+      <dt class="pf-glance__k">Currently</dt>
+      <dd class="pf-glance__v" style="margin-left:0">Business analyst, Dynamic Solution Innovators</dd>
+    </div>
+    <div class="pf-glance__item">
+      <dt class="pf-glance__k">Interests</dt>
+      <dd class="pf-glance__v" style="margin-left:0">Data systems · Code-mixed NLP</dd>
+    </div>
+    <div class="pf-glance__item">
+      <dt class="pf-glance__k">Applying</dt>
+      <dd class="pf-glance__v" style="margin-left:0">PhD · Fall 2027</dd>
+    </div>
+  </dl>
+</section>
 
-  <!-- ================= EXPERIENCE ================= -->
-  <section id="experience">
-    <p class="eyebrow">Experience</p>
-
-    <div class="entry">
-      <div class="meta">Nov 2025 — Present<br>Dhaka, Bangladesh</div>
-      <div>
-        <h3>Business Analyst</h3>
-        <p class="org">Dynamic Solution Innovators Ltd.</p>
-        <ul>
-          <li>Gather and document business requirements through client meetings, translating stakeholder needs into detailed technical specifications, user guides, and process flows for development teams.</li>
-          <li>Collaborate cross-functionally to evaluate business processes, identify improvements, and prepare billing documentation and reports supporting data-informed decision-making.</li>
-          <li>Contribute to information security initiatives by supporting SOC 2 Type II compliance efforts — control identification, risk assessments, and evidence collection aligned to AICPA Trust Services Criteria.</li>
-          <li>Maintain a centralized SQL-based database of organizational resource skills and CVs to support efficient project staffing and resource allocation.</li>
-        </ul>
-      </div>
+<!-- 01 Test scores -->
+<section class="pf-section" id="scores" aria-labelledby="scores-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">01</span>
+      <h2 class="pf-sh__title" id="scores-title">Test scores</h2>
     </div>
 
-    <div class="entry">
-      <div class="meta">Sep 2025 — Nov 2025<br>Dhaka, Bangladesh</div>
-      <div>
-        <h3>Data Operations Analyst</h3>
-        <p class="org">Augmedix Bangladesh</p>
-        <ul>
-          <li>Collaborated with the Commure RCM Ops Colossus team and the US operations team to streamline healthcare revenue cycle management processes.</li>
-          <li>Imported, validated, and reconciled large volumes of operational and financial data from multiple sources to ensure accuracy, completeness, and consistency across systems.</li>
-          <li>Developed and maintained structured databases supporting performance analytics, workflow optimization, and data-driven decision-making.</li>
-          <li>Identified process bottlenecks and improved data pipelines and reporting workflows, building automated dashboards that delivered real-time insights and reduced manual reporting effort.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="meta">Jun 2024 — Aug 2024<br>Dhaka, Bangladesh</div>
-      <div>
-        <h3>Industrial Trainee</h3>
-        <p class="org">Battery Low Interactive Ltd.</p>
-        <ul>
-          <li>Developed and deployed cross-platform applications using Flutter with a 4-person team, streamlining workflows through reusable widgets and efficient state management.</li>
-          <li>Cut tool delivery time by 1.5 weeks on average through improved development workflows.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects">
-    <p class="eyebrow">Selected Work</p>
-    <div class="projects">
-
-      <article class="card">
-        <h3>EARN Information Management System</h3>
-        <div class="tags">
-          <span class="tag">Business Analysis</span>
-          <span class="tag">Requirements</span>
-          <span class="tag">Technical Documentation</span>
-          <span class="tag">UML</span>
+    <div class="pf-scores">
+      <article class="pf-score">
+        <div class="pf-score__head">
+          <h3 class="pf-score__name">GRE</h3>
+          <p class="pf-score__figure">320<span class="pf-score__of"> / 340</span></p>
         </div>
-        <ul>
-          <li>Contributed to the Economic Acceleration and Resilience for NEET (EARN) Project — a World Bank-financed initiative of the Government of Bangladesh implemented by DYD under MoYS with MIS support from LGED, targeting the selection and training of 900,000 NEET youth to improve employment outcomes.</li>
-          <li>Led requirements elicitation, stakeholder coordination, and end-to-end workflow design for the EIMS platform.</li>
-          <li>Contributed to centralized MIS development alongside mobile-based survey modules with offline and geolocation capabilities.</li>
-          <li>Produced Software Requirements Specification (SRS) and Software Design Document (SDD), and designed UML diagrams — use case, sequence, and state — for all modules.</li>
-          <li>Coordinated with cross-functional teams to support project management, planning, and execution.</li>
-        </ul>
+
+        <div class="pf-score__rows">
+          <div class="pf-score__row">
+            <span class="pf-score__k">Quantitative</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:87.5%"></span></span>
+            <span class="pf-score__v">165</span>
+          </div>
+          <div class="pf-score__row">
+            <span class="pf-score__k">Verbal</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:62.5%"></span></span>
+            <span class="pf-score__v">155</span>
+          </div>
+        </div>
+        <p class="pf-score__scale">Section scale 130 – 170</p>
+
+        <div class="pf-score__extra">
+          <span class="pf-score__k">Analytical writing</span>
+          <span class="pf-score__v">3.5<span class="pf-score__of"> / 6</span></span>
+        </div>
       </article>
 
-      <article class="card">
-        <h3>SOC 2 Type II Compliance Implementation</h3>
-        <div class="tags">
-          <span class="tag">IT Compliance</span>
-          <span class="tag">Audit Readiness</span>
-          <span class="tag">Governance</span>
+      <article class="pf-score">
+        <div class="pf-score__head">
+          <h3 class="pf-score__name">IELTS</h3>
+          <p class="pf-score__figure">8.0<span class="pf-score__of"> / 9</span></p>
         </div>
-        <ul>
-          <li>Leading end-to-end implementation of SOC 2 Type II compliance across the organization — control identification, SOP development, risk assessments, and evidence collection.</li>
-          <li>Coordinating cross-functional teams to align internal processes with AICPA Trust Services Criteria: Security, Availability, and Confidentiality.</li>
-          <li>Driving policy formalization, workflow standardization, and audit readiness as part of organizational governance and client assurance strategy.</li>
-        </ul>
+
+        <div class="pf-score__rows">
+          <div class="pf-score__row">
+            <span class="pf-score__k">Listening</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:94.4%"></span></span>
+            <span class="pf-score__v">8.5</span>
+          </div>
+          <div class="pf-score__row">
+            <span class="pf-score__k">Reading</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:100%"></span></span>
+            <span class="pf-score__v">9.0</span>
+          </div>
+          <div class="pf-score__row">
+            <span class="pf-score__k">Speaking</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:83.3%"></span></span>
+            <span class="pf-score__v">7.5</span>
+          </div>
+          <div class="pf-score__row">
+            <span class="pf-score__k">Writing</span>
+            <span class="pf-score__track" aria-hidden="true"><span class="pf-score__fill" style="width:72.2%"></span></span>
+            <span class="pf-score__v">6.5</span>
+          </div>
+        </div>
+        <p class="pf-score__scale">Band scale 0 – 9</p>
       </article>
-
     </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section id="skills">
-    <p class="eyebrow">Skills</p>
-    <div class="skills">
-
-      <div class="skillrow">
-        <h3>Business Analysis</h3>
-        <div class="chips">
-          <span class="chip">Requirement Analysis</span>
-          <span class="chip">Technical Documentation</span>
-          <span class="chip">Business Process Analysis</span>
-          <span class="chip">User Story Writing</span>
-          <span class="chip">Stakeholder Communication</span>
-        </div>
-      </div>
-
-      <div class="skillrow">
-        <h3>Data Analysis &amp; Reporting</h3>
-        <div class="chips">
-          <span class="chip">SQL</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">Data Analysis</span>
-          <span class="chip">Data Validation</span>
-          <span class="chip">Scripting</span>
-          <span class="chip">Dashboard &amp; Reporting Automation</span>
-        </div>
-      </div>
-
-      <div class="skillrow">
-        <h3>Tools</h3>
-        <div class="chips">
-          <span class="chip">Power BI</span>
-          <span class="chip">OpenProject</span>
-          <span class="chip">Lucidchart</span>
-          <span class="chip">Mermaid</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= LEADERSHIP ================= -->
-  <section id="leadership">
-    <p class="eyebrow">Leadership</p>
-
-    <div class="entry">
-      <div class="meta">Jul 2024 — Sep 2025</div>
-      <div>
-        <h3>President</h3>
-        <p class="org">IUT Computer Society</p>
-        <ul>
-          <li>Led and coordinated activities of the CSE department and IUTCS, implementing training programs that produced 4 programming contests, 2 hackathons, and a 15% increase in participation.</li>
-          <li>Organized events and seminars that strengthened members' technical skills and built lasting community engagement.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="meta">Jul 2023 — Jun 2024</div>
-      <div>
-        <h3>General Secretary</h3>
-        <p class="org">IUT Computer Society</p>
-        <ul>
-          <li>Ensured smooth execution of the IUT 11th National ICT Fest — the largest to date, with 2,000+ participants, 12 events, and 19 sponsors.</li>
-          <li>Streamlined team operations and improved participant satisfaction for the Intra IUT ICT Fest, CodeRush.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EDUCATION ================= -->
-  <section id="education">
-    <p class="eyebrow">Education</p>
-    <div class="edu">
-      <div class="edurow">
-        <div class="meta">Jun 2021 — Oct 2025</div>
-        <div>
-          <div class="deg">B.Sc. in Computer Science &amp; Engineering</div>
-          <div class="school">Islamic University of Technology</div>
-        </div>
-        <div class="grade">CGPA 3.71 / 4.00</div>
-      </div>
-      <div class="edurow">
-        <div class="meta">Jul 2018 — Apr 2020</div>
-        <div>
-          <div class="deg">Higher Secondary Certificate, Science</div>
-          <div class="school">Notre Dame College, Dhaka</div>
-        </div>
-        <div class="grade">GPA 5.00 / 5.00</div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- ================= CONTACT ================= -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h2>Open to Business Analyst<br>and Data Analyst roles.</h2>
-    <p>The fastest way to reach me is email. I'm based in Dhaka and happy to talk through requirements work, reporting, or anything in between.</p>
-    <div class="actions">
-      <a class="btn" href="mailto:saminyasar00@gmail.com">saminyasar00@gmail.com</a>
-      <a class="btn" href="https://linkedin.com/in/kazi-samin-yasar-alam-a3a10b383" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/syk08" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <footer>
-      <span>Kazi Samin Yasar Alam — Dhaka, Bangladesh</span>
-      <span>Updated 2026</span>
-    </footer>
   </div>
 </section>
 
+<!-- 02 Research interests -->
+<section class="pf-section" id="research" data-nav="research" aria-labelledby="research-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">02</span>
+      <h2 class="pf-sh__title" id="research-title">Research interests</h2>
+      <p class="pf-sh__lede">Three questions I would like to work on in a PhD, drawn from what I have already built and measured.</p>
+    </div>
+
+    <div class="pf-interests">
+      <article class="pf-card">
+        <span class="pf-card__num">01</span>
+        <h3 class="pf-card__title">Reliable, scalable data systems</h3>
+        <p class="pf-card__body">I am interested in how data is collected, synchronised, stored and served when a stable network cannot be assumed. Working on offline-first data collection and a national dashboard platform turned that interest into concrete questions about distributed data systems and data management.</p>
+        <div class="pf-card__foot pf-chips">
+          <span class="pf-chip">Distributed data systems</span>
+          <span class="pf-chip">Data management</span>
+          <span class="pf-chip">Offline-first sync</span>
+          <span class="pf-chip">Schema migration</span>
+        </div>
+      </article>
+
+      <article class="pf-card">
+        <span class="pf-card__num">02</span>
+        <h3 class="pf-card__title">NLP for low-resource and code-mixed languages</h3>
+        <p class="pf-card__body">Bangla–English code-mixing is ordinary online and badly served by existing corpora and models. I build annotated datasets for it, and I ask what makes such data reliable enough to train and evaluate on.</p>
+        <div class="pf-card__foot pf-chips">
+          <span class="pf-chip">Code-mixing</span>
+          <span class="pf-chip">Corpus construction</span>
+          <span class="pf-chip">Annotation quality</span>
+          <span class="pf-chip">Bangla</span>
+        </div>
+      </article>
+
+      <article class="pf-card">
+        <span class="pf-card__num">03</span>
+        <h3 class="pf-card__title">Evaluating language models on pragmatic tasks</h3>
+        <p class="pf-card__body">Sarcasm, humour and offence turn on what a speaker implies rather than says, and models remain weak at them. I benchmark fine-tuned and zero-shot models on these tasks and on task-oriented dialogue, to find where the models fail and where the evaluation itself does.</p>
+        <div class="pf-card__foot pf-chips">
+          <span class="pf-chip">LLM evaluation</span>
+          <span class="pf-chip">Zero-shot</span>
+          <span class="pf-chip">Pragmatics</span>
+          <span class="pf-chip">Dialogue</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 Selected publications -->
+<section class="pf-section" id="publications" data-nav="publications" aria-labelledby="publications-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">03</span>
+      <h2 class="pf-sh__title" id="publications-title">Publications</h2>
+      <p class="pf-sh__lede">One manuscript, from my undergraduate thesis, under review at PLOS. The preprint is open to read.</p>
+    </div>
+
+    <ul class="pf-pubs">
+      <li class="pf-pub">
+        <span class="pf-pub__year">Preprint</span>
+        <div>
+          <h3 class="pf-pub__title"><a href="https://www.researchgate.net/publication/401229340_MixSarc_A_Bangla-English_Code-Mixed_Corpus_for_Implicit_Meaning_Identification" target="_blank" rel="noopener">MixSarc: A Bangla–English Code-Mixed Corpus for Implicit Meaning Identification</a></h3>
+          <p class="pf-pub__authors"><span class="pf-pub__me">K. S. Y. Alam</span>, M. T. Chowdhury, T. Ahmed, A. Abrar, and M. R. Haque</p>
+          <p class="pf-pub__venue">Under review at PLOS</p>
+          <div class="pf-pub__links">
+            <span class="pf-chip pf-chip--review">Under review</span>
+            <span class="pf-chip">Undergraduate thesis</span>
+            <a class="pf-link pf-link--arrow" href="https://www.researchgate.net/publication/401229340_MixSarc_A_Bangla-English_Code-Mixed_Corpus_for_Implicit_Meaning_Identification" target="_blank" rel="noopener">Read the preprint on ResearchGate</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 Research experience -->
+<section class="pf-section" id="research-experience" data-nav="publications" aria-labelledby="research-experience-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">04</span>
+      <h2 class="pf-sh__title" id="research-experience-title">Research experience</h2>
+    </div>
+
+    <ul class="pf-timeline">
+      <li class="pf-tl">
+        <span class="pf-tl__date">Undergraduate thesis</span>
+        <div>
+          <h3 class="pf-tl__role">MixSarc: a Bangla–English code-mixed corpus for implicit meaning identification</h3>
+          <p class="pf-tl__org">Islamic University of Technology · <a href="https://www.researchgate.net/publication/401229340_MixSarc_A_Bangla-English_Code-Mixed_Corpus_for_Implicit_Meaning_Identification" target="_blank" rel="noopener">preprint</a> under review at PLOS</p>
+          <ul class="pf-tl__list">
+            <li>Built the first public Bangla–English code-mixed corpus annotated for humour, sarcasm, offensiveness and vulgarity: 9,087 sentences drawn from 31,129 scraped social media posts, filtered with script-based rules and an mBERT code-mix classifier.</li>
+            <li>Recruited and coordinated 18 annotators using a qualification test and written guidelines; labels come from triple annotation with majority voting (Fleiss' κ = 0.66).</li>
+            <li>Benchmarked fine-tuned Banglish-BERT and Gemma-2B (QLoRA) against five zero-shot LLMs; humour detection reached F1 0.708, while sarcasm, offensiveness and vulgarity remained hard because of class imbalance.</li>
+            <li>Applied a MixSarc-tuned classifier to BnSentMix and estimated that about 42% of negative-sentiment samples show sarcastic characteristics.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="pf-tl">
+        <span class="pf-tl__date">Sep 2024 — Jan 2025</span>
+        <div>
+          <h3 class="pf-tl__role">Zero-shot task-oriented dialogue</h3>
+          <p class="pf-tl__org">Collaborative research project with Adib Mosharrof, then a PhD student at the University of Kentucky</p>
+          <ul class="pf-tl__list">
+            <li>Evaluated GPT-4o as a zero-shot baseline on three unseen Schema-Guided Dialogue domains (hotels, music, restaurants), measuring API-call invocation, API-call correctness and response quality (GLEU).</li>
+            <li>Analysed failure cases: the model invoked API calls reliably but produced fully correct calls less than half the time.</li>
+            <li>Contributed to prompt design and baseline comparison.</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 05 Projects -->
+<section class="pf-section" id="projects" data-nav="projects" aria-labelledby="projects-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">05</span>
+      <h2 class="pf-sh__title" id="projects-title">Projects</h2>
+      <p class="pf-sh__lede">Government data platforms I worked on, where the data problems came before the models did.</p>
+    </div>
+
+    <div class="pf-projects">
+      <article class="pf-project pf-project--text">
+        <div class="pf-project__body">
+          <p class="pf-project__role">Requirements, data migration and workflow design</p>
+          <h3 class="pf-card__title">EARN Information Management System</h3>
+          <p class="pf-card__body">The centralised MIS for the World Bank-financed EARN Project of the Government of Bangladesh, which targets the selection and training of 900,000 NEET youth.</p>
+          <ul class="pf-project__list">
+            <li>Migrated the government BBS geographic code database — about 36,000 hierarchical codes, from division down to village and union level — into the platform's schema using SQL, integrating it into an already-running system; validation surfaced name mismatches, duplicates and missing entries in about 500 codes.</li>
+            <li>Contributed to the MIS with mobile survey modules that work offline and capture geolocation.</li>
+            <li>Led requirements elicitation and end-to-end workflow design, and produced the SRS, SDD and UML diagrams (use case, sequence, state) for all modules.</li>
+          </ul>
+          <div class="pf-chips">
+            <span class="pf-chip">SQL</span>
+            <span class="pf-chip">Schema migration</span>
+            <span class="pf-chip">Hierarchical data modelling</span>
+            <span class="pf-chip">Offline-first collection</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pf-project pf-project--text">
+        <div class="pf-project__body">
+          <p class="pf-project__role">System design and documentation</p>
+          <h3 class="pf-card__title">National Dashboard Framework, a2i</h3>
+          <p class="pf-card__body">An Apache Superset-based dashboard platform that visualises ministry performance trends and fluctuations, including an AI feature that summarises charts.</p>
+          <ul class="pf-project__list">
+            <li>Supported the design of a modular platform that integrates with government systems through secure APIs, backed by a data warehouse of historical and current metrics with role-based access control.</li>
+            <li>Produced the SRS and use case diagrams for spatial visualisation, time-series analysis and thematic data filtering.</li>
+          </ul>
+          <div class="pf-chips">
+            <span class="pf-chip">Apache Superset</span>
+            <span class="pf-chip">Data warehousing</span>
+            <span class="pf-chip">Secure APIs</span>
+            <span class="pf-chip">Role-based access control</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Experience and education -->
+<section class="pf-section" id="experience" data-nav="experience" aria-labelledby="experience-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">06</span>
+      <h2 class="pf-sh__title" id="experience-title">Experience and education</h2>
+    </div>
+
+    <ul class="pf-timeline">
+      <li class="pf-tl">
+        <span class="pf-tl__date">Nov 2025 — present</span>
+        <div>
+          <h3 class="pf-tl__role">Business Analyst</h3>
+          <p class="pf-tl__org">Dynamic Solution Innovators Ltd.</p>
+          <ul class="pf-tl__list">
+            <li>Translate stakeholder needs from client meetings into technical specifications, user guides and process flows for development teams.</li>
+            <li>Maintain a centralised SQL database of resource skills and CVs for project staffing.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="pf-tl">
+        <span class="pf-tl__date">Sep 2025 — Nov 2025</span>
+        <div>
+          <h3 class="pf-tl__role">Data Operations Analyst</h3>
+          <p class="pf-tl__org">Commure Bangladesh</p>
+          <ul class="pf-tl__list">
+            <li>Imported, validated and reconciled large volumes of operational and financial data from multiple sources for the Commure RCM Ops Colossus US team's healthcare revenue cycle management processes.</li>
+            <li>Improved data pipelines and reporting workflows, building automated dashboards that reduced manual reporting effort.</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="pf-tl">
+        <span class="pf-tl__date">Jun 2021 — Oct 2025</span>
+        <div>
+          <h3 class="pf-tl__role">B.Sc. in Computer Science and Engineering</h3>
+          <p class="pf-tl__org">Islamic University of Technology · CGPA 3.71 / 4.00</p>
+        </div>
+      </li>
+
+      <li class="pf-tl">
+        <span class="pf-tl__date">Jul 2018 — Apr 2020</span>
+        <div>
+          <h3 class="pf-tl__role">Higher Secondary Certificate, science</h3>
+          <p class="pf-tl__org">Notre Dame College, Dhaka · GPA 5.00 / 5.00</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 07 Skills and service -->
+<section class="pf-section" id="skills" data-nav="experience" aria-labelledby="skills-title">
+  <div class="pf-container">
+    <div class="pf-sh">
+      <span class="pf-sh__num">07</span>
+      <h2 class="pf-sh__title" id="skills-title">Skills and service</h2>
+    </div>
+
+    <div class="pf-facts">
+      <div class="pf-facts__group">
+        <h3 class="pf-facts__head">Technical skills</h3>
+        <dl class="pf-facts__list">
+          <div>
+            <dt>Languages</dt>
+            <dd>Python, SQL, C++, Java</dd>
+          </div>
+          <div>
+            <dt>Backend and databases</dt>
+            <dd>MySQL, MongoDB, Firebase, Node.js</dd>
+          </div>
+          <div>
+            <dt>Data tools and scripting</dt>
+            <dd>Data analysis, data validation, web scraping, automation scripting, Apache Superset, Power BI, Retool, Facepager</dd>
+          </div>
+          <div>
+            <dt>Machine learning and NLP</dt>
+            <dd>PyTorch, TensorFlow / Keras, Hugging Face Transformers, scikit-learn, transformer-based models, word embeddings, model fine-tuning, LLM API integration</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="pf-facts__group">
+        <h3 class="pf-facts__head">Leadership and service</h3>
+        <dl class="pf-facts__list">
+          <div>
+            <dt>Jul 2024 — Sep 2025</dt>
+            <dd>
+              <span class="pf-facts__role">President, IUT Computer Society</span><br>
+              Led IUT's largest student-run computing organisation, with more than 10 executive teams and over 100 members; a year-long training pipeline produced 4 contests, 2 national hackathons and a 15% rise in participation.
+            </dd>
+          </div>
+          <div>
+            <dt>Jul 2023 — Jun 2024</dt>
+            <dd>
+              <span class="pf-facts__role">General Secretary, IUT Computer Society</span><br>
+              Managed operations for the IUT 11th National ICT Fest, the largest to date, with more than 2,000 participants, 12 events and 19 sponsors.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pf-container pf-footer" id="contact" data-nav="contact">
+  <div class="pf-contact">
+    <div>
+      <p class="pf-eyebrow pf-eyebrow--accent">Contact</p>
+      <h2 class="pf-contact__title" style="margin-top:12px">Prospective advisors are welcome to get in touch.</h2>
+      <p class="pf-measure" style="margin-top:16px">I am applying for PhD admission for Fall 2027, in distributed data systems and data management, and in NLP for low-resource and code-mixed languages. A short note about shared research interests is always welcome.</p>
+    </div>
+    <ul class="pf-contact__list">
+      <li><span class="pf-eyebrow">Email</span><a href="mailto:saminyasar00@gmail.com">saminyasar00@gmail.com</a></li>
+      <li><span class="pf-eyebrow">CV</span><a href="assets/CV.pdf">Download PDF</a></li>
+      <li><span class="pf-eyebrow">Preprint</span><a href="https://www.researchgate.net/publication/401229340_MixSarc_A_Bangla-English_Code-Mixed_Corpus_for_Implicit_Meaning_Identification" target="_blank" rel="noopener">MixSarc on ResearchGate</a></li>
+      <li><span class="pf-eyebrow">GitHub</span><a href="https://github.com/syk08" target="_blank" rel="noopener">github.com/syk08</a></li>
+      <li><span class="pf-eyebrow">LinkedIn</span><a href="https://linkedin.com/in/kazi-samin-yasar-alam-a3a10b383" target="_blank" rel="noopener">Kazi Samin Yasar Alam</a></li>
+      <li><span class="pf-eyebrow">Location</span><span>Dhaka, Bangladesh</span></li>
+    </ul>
+  </div>
+  <div class="pf-footer__fine">
+    <span>© 2026 Kazi Samin Yasar Alam</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

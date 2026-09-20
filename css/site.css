@@ -1,0 +1,241 @@
+/* Site-specific additions. Every value comes from tokens.css; nothing here
+   redefines a colour, size or font from the design system. */
+
+/* Skip link — visible only on focus */
+.pf-skip {
+  position: absolute;
+  left: var(--space-5);
+  top: var(--space-2);
+  z-index: 20;
+  transform: translateY(-200%);
+  padding: var(--space-2) var(--space-4);
+  background: var(--paper-raised);
+  color: var(--brand);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--rule-strong);
+  text-decoration: none;
+}
+.pf-skip:focus { transform: translateY(0); }
+
+/* Portrait: a serif monogram stands in until assets/portrait.jpg exists.
+   The bundle sets `display:block` on the image, which beats the UA rule for
+   [hidden], so say it again here. */
+.pf-portrait img[hidden] { display: none; }
+.pf-portrait__monogram {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  line-height: 60px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+
+/* Publication and project rows: a second meta line under the venue */
+.pf-note {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-faint);
+}
+
+/* Project cards carry no figure: the body needs its own top padding */
+.pf-project--text .pf-project__body { padding-top: var(--space-5); }
+.pf-project__list {
+  margin: 0;
+  padding-left: var(--space-5);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--ink-muted);
+}
+.pf-project__list li + li { margin-top: var(--space-1); }
+
+/* Test scores.
+   Each subscore is one value against a fixed ceiling, so the form is a meter:
+   a brand fill on a lighter step of the same hue. Every value is also written
+   out in text, so nothing is carried by colour alone. The two panels never
+   share an axis — each states its own scale under the bars. */
+.pf-scores {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+.pf-score {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: var(--paper-raised);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+.pf-score__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--rule);
+}
+.pf-score__name { font-family: var(--font-serif); font-size: 22px; line-height: 30px; font-weight: 500; color: var(--ink); }
+.pf-score__figure {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.pf-score__of { font-family: var(--font-mono); font-size: 13px; font-weight: 400; color: var(--ink-faint); letter-spacing: 0; }
+
+.pf-score__rows { display: grid; gap: var(--space-3); }
+.pf-score__row {
+  display: grid;
+  grid-template-columns: 124px 1fr 40px;
+  align-items: center;
+  gap: var(--space-3);
+}
+.pf-score__k { font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+.pf-score__v {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.pf-score__track {
+  height: 8px;
+  border-radius: var(--radius-md);
+  background: var(--brand-tint);
+  overflow: hidden;
+}
+.pf-score__fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-md);
+  background: var(--brand);
+}
+.pf-score__scale {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.pf-score__extra {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule);
+}
+
+/* Facts block: skills and service, columns of pairs */
+.pf-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8) var(--space-7);
+}
+.pf-facts__group { display: grid; gap: var(--space-4); align-content: start; }
+.pf-facts__head {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--rule);
+}
+.pf-facts__list { margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+.pf-facts__list dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.pf-facts__list dd {
+  margin: var(--space-1) 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--ink-muted);
+}
+.pf-facts__role {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .pf-facts { grid-template-columns: 1fr; gap: var(--space-7); }
+  .pf-scores { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .pf-score__row { grid-template-columns: 100px 1fr 36px; gap: var(--space-2); }
+  .pf-score__figure { font-size: 40px; line-height: 44px; }
+}
+
+/* Phone header. The nav wraps to a second row, which makes a sticky bar tall
+   enough to eat a fifth of the screen — so on a phone it scrolls away instead. */
+@media (max-width: 640px) {
+  .pf-header { position: static; }
+  .pf-header__inner { align-items: flex-start; row-gap: var(--space-2); padding-block: var(--space-3); }
+  .pf-header__name { font-size: 17px; line-height: 24px; }
+  .pf-nav { flex-wrap: wrap; gap: var(--space-3); row-gap: var(--space-1); }
+  .pf-nav a { font-size: 13px; }
+  .pf-hero { padding-block: var(--space-7) var(--space-8); }
+}
+
+/* Below 480px the two-up glance strip squeezes its values into four-word
+   columns, so it becomes one column. */
+@media (max-width: 480px) {
+  .pf-glance { grid-template-columns: 1fr; }
+  .pf-glance__item { border-left: 0; padding-block: var(--space-4); }
+  .pf-glance__item + .pf-glance__item { border-top: 1px solid var(--rule-strong); }
+}
+
+/* Print: black on white, no chrome, link targets spelled out */
+@media print {
+  .pf-header, .pf-skip, .pf-hero__actions, .pf-contact { display: none !important; }
+  :root {
+    --paper: #ffffff;
+    --paper-raised: #ffffff;
+    --paper-sunken: #ffffff;
+    --ink: #000000;
+    --ink-muted: #1a1a1a;
+    --ink-faint: #333333;
+    --rule: #999999;
+    --rule-strong: #666666;
+    --brand: #000000;
+    --accent: #000000;
+    --brand-tint: #ffffff;
+    --accent-tint: #ffffff;
+    --shadow-hover: none;
+  }
+  body { background: #ffffff; }
+  .pf-section, .pf-hero { padding-block: var(--space-6); break-inside: avoid; }
+  .pf-card, .pf-project, .pf-pub, .pf-tl { break-inside: avoid; }
+  main a[href^="http"]::after,
+  main a[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+  .pf-glance { background: #ffffff; box-shadow: inset 0 0 0 1px #999999; }
+  /* The tint collapses to white in print, so outline the meter track */
+  .pf-score__track { box-shadow: inset 0 0 0 1px #999999; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .pf-score__fill { background: #000000; }
+  .pf-score, .pf-scores { break-inside: avoid; }
+}
